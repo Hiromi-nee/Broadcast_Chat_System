@@ -1,4 +1,4 @@
-#Listener
+# BCS Listener
 require 'socket'
 
 UDPSock = UDPSocket.new
