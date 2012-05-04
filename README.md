@@ -6,5 +6,5 @@ Chatting through *.*.*.255
 
 Things to implement:
  - Node list
-	<Name> ip> <port>
+	\<Name\> \<ip\> \<port\>
  - Direct chat connection
