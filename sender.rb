@@ -14,6 +14,8 @@ def start_sender(addr)
 	puts "Input your name: "
 	name = gets.chomp
 	UDPSock.send(name+" has entered.", 0, addr[0], addr[1])
+	#send node info to listeners
+	UDPSock.send("sendinfo|"+name+"|"+addr[1].to_s,0,addr[0],addr[1])
 	while data != 'end' do
 		puts "Input your message: "
 		data = gets.chomp

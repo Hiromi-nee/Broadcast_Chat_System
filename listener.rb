@@ -14,6 +14,18 @@ def spawn_server
 	while true do
 		data, addr = UDPSock.recvfrom(1024) # if this number is too low it will drop the larger packets and never give them to you
 		puts "From addr: '%s' and '%s'" % [addr[3], addr[1]]
+		#recv nodeinfo
+		if data.match(/sendinfo\|(\w*)\|([0-9]{1,5})/)
+			#output to nodelist.txt
+			data = data.sub!(/sendinfo\|/, "")
+			node = Array.new
+			data.split("|").each_with_index do |info,key|
+				node[key]= info
+			end			
+			node[2] = addr[3]
+			puts "Got new node info: %s %s %s" % [node[0], node[1], node[2]] 
+		data=data.sub!(/(.*)/, "") #removes raw command from being printed
+		end
 		puts "%s" % data
 	end
 
@@ -21,5 +33,3 @@ def spawn_server
 end
 
 	spawn_server()
-
-
