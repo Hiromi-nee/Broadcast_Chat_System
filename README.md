@@ -9,3 +9,4 @@ Things to implement:
 	\<Name\> \<ip\> \<port\>
 	- store node list to a file
  - Direct chat connection
+...
